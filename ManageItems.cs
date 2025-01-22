@@ -117,20 +117,15 @@ public class ManageItems
     {
         Console.Clear();
         Console.WriteLine("enter item amount: ");
-        int amount = 1;
+        int amount;
         while (true)
         {
             string amountInput = Console.ReadLine();
 
-            if (Int32.TryParse(amountInput, out amount)) //optimize
+            if (Int32.TryParse(amountInput, out amount) || amountInput.Equals("")) //optimize
             {
-                if (amount == 0)
+                if (amount == 0 || amountInput.Equals(""))
                     amount = 1;
-                return amount;
-            }
-            else if (amountInput.Equals(""))
-            {
-                amount = 1;
                 return amount;
             }
             else

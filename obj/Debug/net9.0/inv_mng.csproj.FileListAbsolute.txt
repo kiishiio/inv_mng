@@ -40,3 +40,4 @@ P:\_learning\csharp\inventory_manager\inv_mng\obj\Debug\net9.0\refint\inv_mng.dl
 P:\_learning\csharp\inventory_manager\inv_mng\obj\Debug\net9.0\inv_mng.pdb
 P:\_learning\csharp\inventory_manager\inv_mng\obj\Debug\net9.0\inv_mng.genruntimeconfig.cache
 P:\_learning\csharp\inventory_manager\inv_mng\obj\Debug\net9.0\ref\inv_mng.dll
+P:\_learning\csharp\inventory_manager\inv_mng\obj\Debug\net9.0\inv_mng.sourcelink.json
