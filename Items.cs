@@ -188,6 +188,8 @@ class Items
     {
         using (var connection = new SQLiteConnection($"Data Source={db};Version=3;"))
         {
+            connection.Open();
+            
             try
             {
                 string getItem = "SELECT amount FROM INVENTORY WHERE itemId = @itemId LIMIT 1;";

@@ -26,8 +26,6 @@ public class Inventory
                     }
                 }
             }
-            //TODO: ask for item id for closer inspection, type 0 or nothing to return
-            //TODO: when view function, give option for add/remove function
         }
     }
 }

@@ -43,6 +43,7 @@ class Program
                     _items.RemoveItem(db);
                     break;
                 case "3":
+                    //wasnt able to get this done
                     break;
                 case "4":
                     _config.EditConfig(db);
@@ -93,5 +94,3 @@ class Program
         Init();
     }
 }
-//TODO: delete amount might be bugg
-// when adding get asked for id, if no id add new row.
