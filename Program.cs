@@ -6,9 +6,9 @@ using inv_mng;
 class Program
 {
     static Config config;
-    static ManageItems manageItems = new ManageItems();
-    static ManageConfig manageConfig = new ManageConfig();
-    static Inventory manageInventory = new Inventory();
+    static ManageConfig _config = new ManageConfig();
+    static Inventory _inventory = new Inventory();
+    static Items _items = new Items();
     
     public static void Init()
     {
@@ -16,7 +16,41 @@ class Program
         config = ManageConfig.LoadConfig();
         var db = GetFolderPath($"{config.database}.db");
         InitDatabase(db);
-        Menu(db);
+        Console.Clear();
+        
+        _inventory.ViewInventory(db);
+        
+        Console.WriteLine("\n:manage inventory:");
+        Console.WriteLine("1. add item");
+        Console.WriteLine("2. delete item");
+        Console.WriteLine("3. inspect item");
+        Console.WriteLine("4. config");
+        Console.WriteLine("0. exit");
+
+        while (true)
+        {
+            string k = Console.ReadLine();
+            switch (k)
+            {
+                case "0":
+                    Console.Clear();
+                    Environment.Exit(0);
+                    break;
+                case "1":
+                    _items.AddItem(db);
+                    break;
+                case "2":
+                    _items.RemoveItem(db);
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    _config.EditConfig(db);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     
     public static string GetFolderPath(string file)
@@ -54,41 +88,10 @@ class Program
         Thread.Sleep(800);
     }
 
-    public static void Menu(string db)
-    {
-        Console.Clear();
-        Console.WriteLine("welcome to the inventory manager!\n");
-        Console.WriteLine("1. manage inventory");
-        Console.WriteLine("2. display inventory");
-        Console.WriteLine("3. config");
-        Console.WriteLine("0. exit\n");
-            
-        string input = Console.ReadLine();
-        switch (input)
-        {
-            case "0":
-                Console.Clear();
-                Environment.Exit(0);
-                break;
-            case "1":
-                manageItems.Menu(db);
-                break;
-            case "2":
-                manageInventory.ViewInventory(db);
-                break;
-            case "3":
-                manageConfig.EditConfig(db);
-                break;
-            default:
-                Menu(db);
-                break;
-        }
-    }
-
     static void Main(string[] args)
     {
         Init();
     }
 }
-//TODO: make code cleaner, advanced removable items, changeable db, more modular
-// there are get set thingies: private int integ = 0; public int Integ{get;set;}
+//TODO: delete amount might be bugg
+// when adding get asked for id, if no id add new row.

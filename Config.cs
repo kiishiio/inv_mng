@@ -11,6 +11,7 @@ public class Config
 public class ManageConfig
 {
     private const string config = "config.json";
+    static Inventory _inventory = new Inventory();
     
     public static Config LoadConfig()
     {
@@ -39,7 +40,8 @@ public class ManageConfig
     {
         Config config = LoadConfig();
         Console.Clear();
-        Console.WriteLine($"enter database name [currently: {config.database}]:");
+        _inventory.ViewInventory(db);
+        Console.WriteLine($"\nenter database name [currently: {config.database}]:");
         string line = Console.ReadLine();
         while (!isValidName(line))
         {

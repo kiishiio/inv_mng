@@ -6,7 +6,6 @@ public class Inventory
 {
     public void ViewInventory(string db)
     {
-        Console.Clear();
         using (var connection = new SQLiteConnection($"Data Source={db};Version=3"))
         {
             connection.Open();
@@ -29,9 +28,6 @@ public class Inventory
             }
             //TODO: ask for item id for closer inspection, type 0 or nothing to return
             //TODO: when view function, give option for add/remove function
-            Console.WriteLine("\npress any key to return");
-            Console.ReadKey(true);
-            Program.Menu(db);
         }
     }
 }
